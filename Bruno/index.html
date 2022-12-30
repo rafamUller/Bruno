@@ -1,0 +1,171 @@
+<html lang="pt-br">
+
+<head>
+  <title>Biblioteca 📚</title>
+</head>
+
+<body>
+  <header>
+    <div>
+      <h1>Biblioteca 📚</h1>
+    </div>
+  </header>
+
+  <div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'Funcionario')">Funcionário</button>
+    <button class="tablinks" onclick="openTab(event, 'Usuario')">Usuário</button>
+    <button class="tablinks" onclick="openTab(event, 'Editora')">Editora</button>
+    <button class="tablinks" onclick="openTab(event, 'Livro')">Prato</button>
+    <button class="tablinks" onclick="openTab(event, 'Emprestimo')">Empréstimo</button>
+  </div>
+
+  <div id="Funcionario" class="tabcontent">
+    <form style="border: 1px solid #ccc">
+      <div class="container">
+        <h1>Funcionario</h1>
+        <hr />
+
+        <label for="nomeFuncionario"><b>Nome</b></label>
+        <input type="text" placeholder="Entre com o nome" id="nomeFuncionario" name="nomeFuncionario" />
+
+        <label for="carteiraFuncionario"><b>Carteira de trabalho</b></label>
+        <input type="text" placeholder="Entre com a sua carteira de trabalho" id="carteiraFuncionario" name="carteiraFuncionario" />
+
+        <label for="telefoneFuncionario"><b>Telefone</b></label>
+        <input type="text" placeholder="Entre com o telefone" id="telefoneFuncionario" name="telefoneFuncionario" />
+
+        <div>
+          <button type="button" onclick="salvarFuncionario()">Salvar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div id="Usuario" class="tabcontent">
+    <form style="border: 1px solid #ccc">
+      <div class="container">
+        <h1>Usuario</h1>
+        <hr />
+
+        <label for="nomeUsuario"><b>Nome</b></label>
+        <input type="text" placeholder="Entre com o nome" id="nomeUsuario" name="nomeUsuario" />
+
+        <label for="matriculaUsuario"><b>Matricula</b></label>
+        <input type="text" placeholder="Entre com a matricula" id="matriculaUsuario" name="matriculaUsuario" />
+
+        <label for="cpfUsuario"><b>CPF</b></label>
+        <input type="text" placeholder="Entre com o CPF" id="cpfUsuario" name="cpfUsuario" />
+
+        <label for="emailUsuario"><b>Email</b></label>
+        <input type="text" placeholder="Entre com o email" id="emailUsuario" name="emailUsuario" />
+
+
+        <div>
+          <button type="button" onclick="salvarUsuario()">Salvar</button>
+        </div>
+      </div>
+    </form>
+  </div>    
+
+  <div id="Editora" class="tabcontent">
+<form style="border: 1px solid #ccc">
+      <div class="container">
+        <h1>Editora</h1>
+        <hr />
+        <label for="nomeEditora"><b>Nome</b></label>
+        <input type="text" placeholder="Entre com o nome" id="nomeEditora" name="nomeEditora" />
+
+        <label for="telefoneEditora"><b>Telefone</b></label>
+        <input type="text" placeholder="Entre com o telefone" id="telefoneEditora" name="telefoneEditora" />
+       
+        <label for="enderecoEditora"><b>Endereço</b></label>
+        <input type="text" placeholder="Entre com o celular" id="enderecoEditora" name="enderecoEditora" />
+
+        <label for="emailEditora"><b>Email</b></label>
+        <input type="text" placeholder="Entre com o email" id="emailEditora" name="emailEditora" />
+        <div>
+          <button type="button" onclick="salvarEditora()">Salvar</button>
+        </div>
+      </div>
+    </form>  </div>
+
+  <div id="Prato" class="tabcontent">
+    <h3>Prato</h3>
+  </div>
+
+  <div id="Pedido" class="tabcontent">
+    <h3>Pedido</h3>
+  </div>
+
+  <script>
+    function salvarFuncionario() {
+      funcionario = new Funcionario();
+      funcionario.nome = document.getElementById("nomeFuncionario").value;
+      funcionario.carteira = document.getElementById("carteiraFuncionario").value;
+      funcionario.telefone = document.getElementById("telefoneFuncionario").value;
+
+      alert(
+        `Funcionario cadastrado com sucesso! \nNome: ${funcionario.nome} \nPlaca: ${funcionario.carteira} \nCelular: ${funcionario.telefone}`
+      );
+    }
+
+function salvarUsuario() {
+      usuario = new Usuario();
+      usuario.nome = document.getElementById("nomeUsuario").value;
+      usuario.matricula = document.getElementById("matriculaUsuario").value;
+      usuario.cpf = document.getElementById("cpfUsuario").value;
+      usuario.email = document.getElementById("emailUsuario").value;
+ 
+
+      alert(
+        `Cliente cadastrado com sucesso! \nNome: ${usuario.nome} \nMatricula: ${usuario.matricula} \nCPF: ${usuario.cpf} \nEmail: ${usuario.email}`
+      );
+    }
+
+  function salvarEditora() {
+      editora = new Editora();
+      editora.nome = document.getElementById("nomeEditora").value;
+      editora.telefone = document.getElementById("telefoneEditora").value;
+      editora.endereco = document.getElementById("enderecoEditora").value;
+      editora.email = document.getElementById("emailEditora").value;
+
+      alert(
+        `Restaurante cadastrado com sucesso! \nNome: ${editora.nome} \nTelefone: ${editora.telefone}  \nEndereço: ${editora.endereco} \nEmail: ${ editora.email}`
+      );
+    }
+
+   class Funcionario{
+    nome;
+    carteiraDeTrabalho;
+    telefone
+}
+  class Usuario{
+  nome;
+  matricula;
+  email;
+  cpf
+}
+
+  class Editora{
+  nome;
+  telefone;
+  endereço;
+  email
+}
+
+
+
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
